@@ -1,0 +1,12 @@
+setup.py
+quote/__init__.py
+quote/base.py
+quote/mapashe.py
+quote/models.py
+quote/tasks.py
+quote.egg-info/PKG-INFO
+quote.egg-info/SOURCES.txt
+quote.egg-info/dependency_links.txt
+quote.egg-info/not-zip-safe
+quote.egg-info/requires.txt
+quote.egg-info/top_level.txt
