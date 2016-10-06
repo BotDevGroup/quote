@@ -21,4 +21,8 @@ def quote_movie(update, *args):
     adapter.bot.sendMessage(chat_id=update.message.chat_id, text=r['author'])
 
 
-adapter.add_handler(CommandHandler('quote'), quote_movie, call_async=True)
+def setup(new_adapter):
+    global adapter
+    adapter = new_adapter
+
+    adapter.add_handler(CommandHandler('quote', quote_movie, call_async=True))
