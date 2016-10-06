@@ -10,15 +10,16 @@ adapter = get_adapter()
 
 
 def quote_movie(update, *args):
-    response = requests.get('https://andruxnet-random-famous-quotes.p.mashape.com/?cat=movies',headers={
+    response = requests.get('https://andruxnet-random-famous-quotes.p.mashape.com/?cat=movies', headers={
       "X-Mashape-Key": "BEjqsVLNGDmshmQ0ZxP0TC6j7wfDp1tlihvjsnUhhELDOJA7f5",
       "Content-Type": "application/x-www-form-urlencoded",
       "Accept": "application/json"
     })
     r = response.json()
-    log.info('Sending Quote')
-    adapter.bot.sendMessage(chat_id=update.message.chat_id, text=r['quote'])
-    adapter.bot.sendMessage(chat_id=update.message.chat_id, text=r['author'])
+    adapter.bot.sendMessage(chat_id=update.message.chat_id,
+                            text="_{quote}_ -- *{author}*".format(quote=r['quote'],
+                                                                  author=r['author']),
+                            parse_mode='Markdown')
 
 
 def setup(new_adapter):
